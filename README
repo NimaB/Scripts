@@ -1,0 +1,21 @@
+PreProc.py:
+Gets input path which should contain pcd files for pointcluds with type  
+pointxyzrgb. and run PreProc on all of them saves the results in separate 
+folder for each pointclouds. Results are:
+
+1.Ponitcloud_transfered.pcd (rottated and translated)
+2.Ponitcloud_normal.pcd (surface normals of the input cloud)
+3.Ponitcloud_TFP.pcd (Test full pointcloud)
+4.Ponitcloud_converted.pcd (converted from pointxyzrgb to pointxyzrgbl)
+
+----------------------------------------------------------------
+FeatExt.py:
+
+This script  gets two path for input pointclouds and normals               
+And an output path to save results of feature extract. (for now only train)
+Results are:
+
+1.pointcloud_IP.dat
+2.pointcloud_data.dat
+3.pointcloud_label.dat
+4.
