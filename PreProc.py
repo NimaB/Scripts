@@ -7,15 +7,18 @@
 #**************************************************************************
 
 import os,shutil,subprocess
+FDetectPath = "/home/nims/Desktop/experiment environment/ContextModel-master"
+CloudsPath = "/home/nims/Desktop/experiment environment/Clouds"
+ResultPath = "/home/nims/Desktop/experiment environment/PreProc"
 #files = glob.iglob(os.path.join(source_dir,"*.ext"))
 
-for root, dirs, files in os.walk('.'):
+for root, dirs, files in os.walk(CloudsPath):
 	for file in files:
 		if file[-4:].lower() == '.pcd':
 			filepath = os.path.join(root,file)
 			dirname = os.path.splitext(file)[0]			
 			print dirname
-			if not os.path.exists(os.path.join(root,dirname)):
-				os.makedirs(os.path.join(root,dirname))
-			shutil.copy(filepath,os.path.join(root,dirname))
-			subprocess.call(["/home/sm/ros_workspace/FDetect/bin/PreProc","1",filepath,root+"/"+dirname+"/"+dirname+"_transfered"+".pcd",root+"/"+dirname+"/"+dirname+"_normal"+".pcd",root+"/"+dirname+"/"+dirname+"_TFP"+".pcd",root+"/"+dirname+"/"+dirname+"_Converted"+".pcd"])
+			if not os.path.exists(os.path.join(ResultPath,dirname)):
+				os.makedirs(os.path.join(ResultPath,dirname))
+			shutil.copy(filepath,os.path.join(ResultPath,dirname))
+			subprocess.call([FDetectPath+"/bin/PreProc","1",filepath,ResultPath+"/"+dirname+"/"+dirname+"_transfered"+".pcd",ResultPath+"/"+dirname+"/"+dirname+"_normal"+".pcd",ResultPath+"/"+dirname+"/"+dirname+"_TFP"+".pcd",ResultPath+"/"+dirname+"/"+dirname+"_Converted"+".pcd"])
