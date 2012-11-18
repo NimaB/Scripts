@@ -21,4 +21,4 @@ for root, dirs, files in os.walk(InPath):
 			print filebase
 			if not os.path.exists(os.path.join(OutPath,filebase)):
 				os.makedirs(os.path.join(OutPath,filebase))
-			subprocess.call(["/home/sm/ros_workspace/FDetect/bin/FD","1",filepath,filepath[:-14]+"_normal.pcd",OutPath+filebase+"/"+filebase+"_IP.dat",OutPath+filebase+"/"+filebase+"_data.dat",OutPath+filebase+"/"+filebase+"_label.dat"])
+			subprocess.call(["/home/sm/ros_workspace/FDetect/bin/FD","1",filepath,filepath[:-14]+"_normal.pcd",OutPath+filebase+"/"+filebase+"_IP.dat",OutPath+filebase+"/"+filebase+"_data.dat",OutPath+filebase+"/"+filebase+"_label.dat"],OutPath+ObjClassName+"_train.dat",OutPath+ObjClassName+"_labels.dat")
