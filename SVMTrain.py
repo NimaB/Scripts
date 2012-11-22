@@ -19,4 +19,4 @@ subprocess.call([SVMCheckData,InPath])
 #2.Add running grid.py to find best parameters
 subprocess.call([SVMScale,'-l',' 0',InPath,' >','scaled.dat'])#InPath[:-4]+'_scaled.dat'])
 #Gausian with gamma 0.1 and c 100 and first class weight to 10, suppose that first class is positive class. 
-subprocess.call([SVMTrainPath,'-t','2','-g','0.1','-c','100','-w1','10',InPath,OutPath])
+subprocess.call([SVMTrainPath,'-t','2','-g','0.1','-c','100','-w1','1','-w-1','1','-b','1',InPath,OutPath])
