@@ -6,9 +6,11 @@
 #****************************************************************************
 import os,shutil,subprocess,glob
 
-InPath = '/home/sm/Desktop/test'
-OutPath = '/home/sm/Desktop/test/Experiments/'
-
+FeatExtPath ='/home/nims/Desktop/experiment environment/ContextModel-master/bin/FD'
+InPath = '/home/nims/Desktop/experiment environment/PreProc'
+OutPath = '/home/nims/Desktop/experiment environment/Trash_experiment_22-11-12/'
+ObjClassName = 'TrashBin'
+l = len(ObjClassName+'_annotated.pcd')
 for root, dirs, files in os.walk(InPath):
 	for file in files:
 		if file[-13:].lower() == 'annotated.pcd':
@@ -17,8 +19,8 @@ for root, dirs, files in os.walk(InPath):
                         print filepath
 #			filebase = os.path.splitext(file)[1]
 #			filebase = filepath[:-14]
-			filebase = file[:-14]			
+			filebase = file[:-(l+1)]			
 			print filebase
 			if not os.path.exists(os.path.join(OutPath,filebase)):
 				os.makedirs(os.path.join(OutPath,filebase))
-			subprocess.call(["/home/sm/ros_workspace/FDetect/bin/FD","1",filepath,filepath[:-14]+"_normal.pcd",OutPath+filebase+"/"+filebase+"_IP.dat",OutPath+filebase+"/"+filebase+"_data.dat",OutPath+filebase+"/"+filebase+"_label.dat",OutPath+ObjClassName+"_train.dat",OutPath+ObjClassName+"_labels.dat",OutPath+ObjClassName+"_downsampled.pcd"])
+			subprocess.call([FeatExtPath,"1",filepath,filepath[:-(l+1)]+"_normal.pcd",OutPath+filebase+"/"+filebase+"_IP.dat",OutPath+filebase+"/"+filebase+"_data.dat",OutPath+filebase+"/"+filebase+"_label.dat",OutPath+ObjClassName+"_train.dat",OutPath+ObjClassName+"_labels.dat",OutPath+filebase+"/"+filebase+"_downsampled.pcd"])
