@@ -7,9 +7,9 @@
 #**************************************************************************
 
 import os,shutil,subprocess
-FDetectPath = "/home/nims/Desktop/experiment environment/ContextModel-master"
-CloudsPath = "/home/nims/Desktop/experiment environment/Clouds"
-ResultPath = "/home/nims/Desktop/experiment environment/PreProc"
+FDetectPath = "/home/sm/ros_workspace/FDetect"
+CloudsPath = "/home/sm/Workspace/Clouds/Offices/621"
+ResultPath = "/home/sm/Workspace/testcloud"
 #files = glob.iglob(os.path.join(source_dir,"*.ext"))
 
 for root, dirs, files in os.walk(CloudsPath):
